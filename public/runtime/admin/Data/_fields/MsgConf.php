@@ -1,0 +1,27 @@
+<?php
+return array (
+  0 => 'user_id',
+  1 => 'mail_asked',
+  2 => 'sms_asked',
+  3 => 'mail_bid',
+  4 => 'sms_bid',
+  5 => 'mail_myfail',
+  6 => 'sms_myfail',
+  7 => 'mail_half',
+  8 => 'sms_half',
+  9 => 'mail_bidsuccess',
+  10 => 'sms_bidsuccess',
+  11 => 'mail_fail',
+  12 => 'sms_fail',
+  13 => 'mail_bidrepaid',
+  14 => 'sms_bidrepaid',
+  15 => 'mail_answer',
+  16 => 'sms_answer',
+  17 => 'mail_transferfail',
+  18 => 'sms_transferfail',
+  19 => 'mail_transfer',
+  20 => 'sms_transfer',
+  '_autoinc' => false,
+  '_pk' => 'user_id',
+);
+?>

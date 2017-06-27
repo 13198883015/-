@@ -1,0 +1,27 @@
+<?php
+return array (
+  0 => 'id',
+  1 => 'user_type',
+  2 => 'user_id',
+  3 => 'pMerCode',
+  4 => 'pMerBillNo',
+  5 => 'pAcctType',
+  6 => 'pIdentNo',
+  7 => 'pRealName',
+  8 => 'pIpsAcctNo',
+  9 => 'pTrdDate',
+  10 => 'pTrdAmt',
+  11 => 'pChannelType',
+  12 => 'pTrdBnkCode',
+  13 => 'pMerFee',
+  14 => 'pIpsFeeType',
+  15 => 'pMemo1',
+  16 => 'pMemo2',
+  17 => 'pMemo3',
+  18 => 'pIpsBillNo',
+  19 => 'pErrCode',
+  20 => 'pErrMsg',
+  '_autoinc' => true,
+  '_pk' => 'id',
+);
+?>

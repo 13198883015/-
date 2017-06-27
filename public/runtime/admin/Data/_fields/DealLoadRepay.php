@@ -1,0 +1,25 @@
+<?php
+return array (
+  0 => 'id',
+  1 => 'deal_id',
+  2 => 'user_id',
+  3 => 'self_money',
+  4 => 'repay_money',
+  5 => 'manage_money',
+  6 => 'impose_money',
+  7 => 'repay_time',
+  8 => 'true_repay_time',
+  9 => 'status',
+  10 => 'is_site_repay',
+  11 => 'l_key',
+  12 => 'u_key',
+  13 => 'repay_id',
+  14 => 'load_id',
+  15 => 'has_repay',
+  16 => 't_user_id',
+  17 => 'repay_manage_money',
+  18 => 'repay_manage_impose_money',
+  '_autoinc' => true,
+  '_pk' => 'id',
+);
+?>
