@@ -53,4 +53,3 @@ class SiteApp{
 		unset($this);  #删除此类 SiteApp
 	}
 }
-?>

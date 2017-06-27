@@ -1,4 +1,4 @@
-<?php exit;?>a:3:{s:8:"template";a:3:{i:0;s:40:"D:/data/WWW/app/Tpl/blue/page/index.html";i:1;s:40:"D:/data/WWW/app/Tpl/blue/inc/header.html";i:2;s:40:"D:/data/WWW/app/Tpl/blue/inc/footer.html";}s:7:"expires";i:1498530976;s:8:"maketime";i:1498530376;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php exit;?>a:3:{s:8:"template";a:3:{i:0;s:40:"D:/data/WWW/app/Tpl/blue/page/index.html";i:1;s:40:"D:/data/WWW/app/Tpl/blue/inc/header.html";i:2;s:40:"D:/data/WWW/app/Tpl/blue/inc/footer.html";}s:7:"expires";i:1498543810;s:8:"maketime";i:1498543210;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="Generator" />

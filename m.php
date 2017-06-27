@@ -1,4 +1,4 @@
 <?php
-define("ADMIN_ROOT",1);
+define("ADMIN_ROOT",true);
 require "admin.php";
 ?>
