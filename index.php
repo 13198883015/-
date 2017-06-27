@@ -26,5 +26,3 @@ if (isMobile() && !isset($_REQUEST['is_pc']) && es_cookie::get("is_pc")!=1 && in
 	$AppWeb = new SiteApp();
 }
 
-
-?>
