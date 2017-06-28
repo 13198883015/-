@@ -7,7 +7,7 @@ return array(
 'ADMIN_LOG'=>'1',
 'DB_VERSION'=>'3.1',
 'DB_VOL_MAXSIZE'=>'8000000',
-'WATER_MARK'=>'./public/attachment/201302/05/13/51109c2f2966f.png',
+'WATER_MARK'=>'./public/attachment/201706/28/11/59532908cf154.png',
 'CURRENCY_UNIT'=>'￥',
 'BIG_WIDTH'=>'500',
 'BIG_HEIGHT'=>'500',
@@ -38,8 +38,12 @@ return array(
 'PAGE_SIZE'=>'10',
 'HELP_CATE_LIMIT'=>'4',
 'HELP_ITEM_LIMIT'=>'4',
-'SHOP_FOOTER'=>'<div style=\"text-align:center;\">联系我们：info@fanwe.com &nbsp; 福州方维信息科技有限公司</div>
-<div style=\"text-align:center;\">© 2013 p2p信贷 All rights reserved</div>',
+'SHOP_FOOTER'=>'<div style=\"text-align:center;\">
+	联系我们：info@fanwe.com &nbsp; 福州方维信息科技有限公司
+</div>
+<div style=\"text-align:center;\">
+	&copy; 2013 p2p信贷 All rights reserved
+</div>',
 'CUSTOM_SERVICE'=>',',
 'SMS_SEND_REPAY'=>'1',
 'USER_MESSAGE_AUTO_EFFECT'=>'1',

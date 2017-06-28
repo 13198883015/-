@@ -117,10 +117,10 @@ class AppTemplate
                 $out = $this->es_tmpl($out);
             }
             else
-            {            	
+            {
                 if (app_conf("TMPL_CACHE_ON")==1&&$cache_id && $this->caching && !IS_DEBUG)
-                {                	
-                    $out = $this->template_out;                                                     
+                {
+                    $out = $this->template_out;
                 }
                 else
                 {
@@ -134,7 +134,7 @@ class AppTemplate
                     if (app_conf("TMPL_CACHE_ON")==1&&$cache_id)
                     {
                         $cachename = basename($filename, strrchr($filename, '.')) . '_' . $cache_id;
-                       
+
                         $data = serialize(array('template' => $this->template, 'expires' => $this->_nowtime + $this->cache_lifetime, 'maketime' => $this->_nowtime));
                         $out = str_replace("\r", '', $out);
 
@@ -157,11 +157,11 @@ class AppTemplate
                         $this->template = array();
                     }
                 }
-                
+
             }
-            
-           
-		        
+
+
+
         }
 
         $this->_seterror--;
@@ -171,7 +171,7 @@ class AppTemplate
         }
 
         $out = str_replace("{%city%}",$GLOBALS['deal_city']['name'],$out);
-        
+
         //end
         return $out; // 返回html数据
     }
@@ -180,26 +180,26 @@ class AppTemplate
     {
     	 //对图片路径的修复
 	        $domain = app_conf("PUBLIC_DOMAIN_ROOT")==''?SITE_DOMAIN.APP_ROOT:app_conf("PUBLIC_DOMAIN_ROOT");
-	        $out = str_replace(APP_ROOT."./public/",$domain."/public/",$out);	
-	        $out = str_replace("./public/",$domain."/public/",$out);	
+	        $out = str_replace(APP_ROOT."./public/",$domain."/public/",$out);
+	        $out = str_replace("./public/",$domain."/public/",$out);
 
 	        //修复url的路径
-	        $out = str_replace("./",SITE_DOMAIN.APP_ROOT."/",$out);	
-	        
+	        $out = str_replace("./",SITE_DOMAIN.APP_ROOT."/",$out);
+
 	         //对广告位的解析
 	        preg_match_all("/<adv(\s+)adv_id=\"(\S+)\"([^>]*)>/",$out,$layout_array);
-	  		
+
 	        foreach($layout_array[2] as $k=>$adv_id)
-	        {   
-	        	global $adv; 
+	        {
+	        	global $adv;
 	        	if(trim($layout_array[3][$k])!='/') //有关联数据
 	        	{
 	        		preg_match_all("/rel_table=\"(\S+)\"(\s+)rel_id=\"(\S+)\"/",$layout_array[3][$k],$rel_array);
 	        		$adv = $GLOBALS['db']->getRow("select * from ".DB_PREFIX."adv where tmpl='".app_conf("TEMPLATE")."' and adv_id='".$adv_id."' and rel_table = '".$rel_array[1][0]."' and rel_id = ".intval($rel_array[3][0])." and is_effect = 1");
-	        	}	
+	        	}
 	        	else
 	        	{
-	        		$adv = $GLOBALS['db']->getRow("select * from ".DB_PREFIX."adv where tmpl='".app_conf("TEMPLATE")."' and adv_id='".$adv_id."' and is_effect = 1");      	
+	        		$adv = $GLOBALS['db']->getRow("select * from ".DB_PREFIX."adv where tmpl='".app_conf("TEMPLATE")."' and adv_id='".$adv_id."' and is_effect = 1");
 	        	}
 	        	if($adv['city_ids']!='')
 	        	{
@@ -209,11 +209,11 @@ class AppTemplate
 	        			$out = preg_replace_callback("/<adv(\s+)adv_id=\"".$adv_id."\"([^>]*)>/i","adv_preg",$out,1);
 	        			 //对图片路径的修复
 				        $domain = app_conf("PUBLIC_DOMAIN_ROOT")==''?SITE_DOMAIN.$GLOBALS['IMG_APP_ROOT']:app_conf("PUBLIC_DOMAIN_ROOT");
-				        $out = str_replace($GLOBALS['IMG_APP_ROOT']."./public/",$domain."/public/",$out);	
-				        $out = str_replace("./public/",$domain."/public/",$out);	
-				        
+				        $out = str_replace($GLOBALS['IMG_APP_ROOT']."./public/",$domain."/public/",$out);
+				        $out = str_replace("./public/",$domain."/public/",$out);
+
 				        //修复url的路径
-				        $out = str_replace("./",SITE_DOMAIN.APP_ROOT."/",$out);	
+				        $out = str_replace("./",SITE_DOMAIN.APP_ROOT."/",$out);
 	        		}
 	        	}
 	        	else
@@ -221,16 +221,16 @@ class AppTemplate
 	        		$out = preg_replace_callback("/<adv(\s+)adv_id=\"".$adv_id."\"([^>]*)>/i","adv_preg",$out,1);
 	        		//对图片路径的修复
 			        $domain = app_conf("PUBLIC_DOMAIN_ROOT")==''?SITE_DOMAIN.$GLOBALS['IMG_APP_ROOT']:app_conf("PUBLIC_DOMAIN_ROOT");
-			        $out = str_replace($GLOBALS['IMG_APP_ROOT']."./public/",$domain."/public/",$out);	
-			        $out = str_replace("./public/",$domain."/public/",$out);	
-			        
+			        $out = str_replace($GLOBALS['IMG_APP_ROOT']."./public/",$domain."/public/",$out);
+			        $out = str_replace("./public/",$domain."/public/",$out);
+
 			        //修复url的路径
-			        $out = str_replace("./",SITE_DOMAIN.APP_ROOT."/",$out);	
+			        $out = str_replace("./",SITE_DOMAIN.APP_ROOT."/",$out);
 	        	}
 	        	unset($adv);
 	        }
-	        //end 
-	        return $out; 
+	        //end
+	        return $out;
     }
     /**
      * 显示页面函数
@@ -261,12 +261,12 @@ class AppTemplate
             $out = implode('', $k);
         }
         error_reporting($this->_errorlevel);
-        $this->_seterror--;  
+        $this->_seterror--;
         gzip_out($out.run_info());
 
     }
-    
-    
+
+
     /**
      * 编译模板函数
      *
@@ -278,7 +278,7 @@ class AppTemplate
     function make_compiled($filename)
     {
         $name = $this->compile_dir . '/' . basename($filename) . '.php';
-		
+
         if ($this->_expires)
         {
             $expires = $this->_expires - $this->cache_lifetime;
@@ -307,8 +307,8 @@ class AppTemplate
                 $expires = 0;
             }
         }
-		
-		
+
+
         if ($this->force_compile || $filestat['mtime'] > $expires)
         {
             $this->_current_file = $filename;
@@ -333,15 +333,15 @@ class AppTemplate
     {
        return preg_replace("/{([^\}\{\n]*)}/e", "\$this->select('\\1');", $source);
     }
-    
-   
-    
+
+
+
     public function clear_cache($filename,$cached_id)
     {
     	 $cachename = basename($filename, strrchr($filename, '.')) . '_' . $cached_id;
     	 $hash_dir = $this->cache_dir . '/c' . substr(md5($cachename), 0, 1);
     	 @unlink($hash_dir . '/' . $cachename . '.php');
-    	
+
     }
     /**
      * 判断是否缓存
@@ -509,12 +509,12 @@ class AppTemplate
                     break;
 
                 case 'include':
-                    $t = $this->get_para(substr($tag, 8), 0);       
-                   	
+                    $t = $this->get_para(substr($tag, 8), 0);
+
             		if(substr($t[file],-4,4)!='html')
                     {
-                    	$code =  var_export($this->_var[$t['inc_var']],1);  
-	                   	if($t['inc_var']) 
+                    	$code =  var_export($this->_var[$t['inc_var']],1);
+	                   	if($t['inc_var'])
 	                   	{
 		                   	 return '<?php $this->assign(\'inc_var\','.$code.');echo $this->fetch(' . "$t[file]" . '); ?>';
 	                   	}
@@ -522,19 +522,19 @@ class AppTemplate
 						{
 							return '<?php echo $this->fetch(' . "$t[file]" . '); ?>';
 						}
-						
+
                     }
                     else
                     {
-                    	$code =  var_export($this->_var[$t['inc_var']],1);  
-	                   	if($t['inc_var']) 
+                    	$code =  var_export($this->_var[$t['inc_var']],1);
+	                   	if($t['inc_var'])
 	                    return '<?php $this->assign(\'inc_var\','.$code.');echo $this->fetch(' . "'$t[file]'" . '); ?>';
 						else
 						return '<?php echo $this->fetch(' . "'$t[file]'" . '); ?>';
                     }
-                    
-                    
-					
+
+
+
                     break;
 
                 case 'insert_scripts':
@@ -549,7 +549,7 @@ class AppTemplate
                     return '<?php echo $this->smarty_create_pages(' . $this->make_array($t) . '); ?>';
                     break;
                 case 'insert' :
-                    $t = $this->get_para(substr($tag, 7), false);					
+                    $t = $this->get_para(substr($tag, 7), false);
                     $out = "<?php \n" . '$k = ' . preg_replace("/(\'\\$[^,]+)/e" , "stripslashes(trim('\\1','\''));", var_export($t, true)) . ";\n";
                     $out .= 'echo $this->_hash . $k[\'name\'] . \'|\' . base64_encode(serialize($k)) . $this->_hash;' . "\n?>";
 
@@ -589,15 +589,15 @@ class AppTemplate
 
                     return '<?php echo $this->html_select_time(' . $this->make_array($t) . '); ?>';
                     break;
-					
+
 				case 'function' :
                     $t = $this->get_para(substr($tag, 8), false);
 
                     $out = "<?php \n" . '$k = ' . preg_replace("/(\'\\$[^,]+)/e" , "stripslashes(trim('\\1','\''));", var_export($t, true)) . ";\n";
 					$out .= 'echo $k[\'name\'](';
-					
+
 					$first = true;
-					
+
 					foreach($t as $n => $v)
 					{
 						if($n != "name")
@@ -605,19 +605,19 @@ class AppTemplate
 							if($first)
 							{
 								$out .='$k[\''.$n.'\']';
-								$first = false;	
+								$first = false;
 							}
 							else
 							{
 								$out .=',$k[\''.$n.'\']';
 							}
-						}	
+						}
 					}
                     $out .= ');' . "\n?>";
 
                     return $out;
                     break;
-                    
+
                 case 'url' :
     				$reg_text = "/\"([^\"]+)\"/";
     				preg_match_all($reg_text,$tag,$matches);
@@ -637,7 +637,7 @@ class AppTemplate
     							foreach($param_matches[0] as $m_item)
     							{
     								$finder[] = $m_item;
-    							}    							
+    							}
     							//有参数
     							foreach($param_matches[1] as $p_item)
     							{
@@ -650,31 +650,31 @@ class AppTemplate
     								$var_str.='."';
     								$replacement[] = $var_str;
     							}
-    						}    						
-    						$param_str =  str_replace($finder,$replacement,$matches[0][2]);    						
+    						}
+    						$param_str =  str_replace($finder,$replacement,$matches[0][2]);
     					}
-    					
+
     					$app_index = $matches[1][0];
     					$route = $matches[1][1];
     					if(empty($route))
     					$route = "index";
-    					
-    					
+
+
     					$code =  "<?php\r\n";
     					$code.= "echo parse_url_tag(\"";
     					$code.="u:";
-    					$code.= $app_index."|".$route."|\"."; 
+    					$code.= $app_index."|".$route."|\".";
     					$code.=$param_str.".";
     					$code.="\"\"); \r\n";
     					$code.="?>";
-    					
+
     					return $code;
     				}
     				else
     				{
     					 return '{' . $tag . '}';
     				}
-    				
+
                     break;
 
                 default:
@@ -854,7 +854,7 @@ class AppTemplate
             if (strrpos($value, '='))
             {
                 list($a, $b) = explode('=', str_replace(array(' ', '"', "'", '&quot;'), '', $value));
-				
+
                 if ($b{0} == '$')
                 {
                     if ($type)
@@ -1203,17 +1203,17 @@ class AppTemplate
         return $str;
     }
 
-   
+
     function insert_mod($name) // 处理动态内容
     {
         list($fun, $para) = explode('|', $name);
         $para = unserialize(base64_decode($para));
-        $insert_func = 'insert_' . $fun;	
-        require_once APP_ROOT_PATH."app/Lib/insert_libs.php";	
+        $insert_func = 'insert_' . $fun;
+        require_once APP_ROOT_PATH."app/Lib/insert_libs.php";
         if(!function_exists($insert_func))//也可调用module中的静态方法
         {
        		$module = MODULE_NAME."Module";
-        	return call_user_func(array($module,$fun),$para);  
+        	return call_user_func(array($module,$fun),$para);
         }
         else
 	    return $insert_func($para);
@@ -1497,7 +1497,7 @@ class AppTemplate
 
         return $str;
     }
-    
+
 }
 
 ?>

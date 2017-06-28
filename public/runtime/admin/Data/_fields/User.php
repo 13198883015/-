@@ -119,6 +119,7 @@ return array (
   116 => 'view_info',
   117 => 'ips_acct_no',
   118 => 'referral_rate',
+  119 => 'taobao_id',
   '_autoinc' => true,
   '_pk' => 'id',
 );

@@ -1,2 +1,8 @@
 ﻿详细安装说明请见
 http://www.haoid.cn/post/406
+后台:m.php 后台入口
+前台:index.php首页默认入口
+后台admin
+前台app
+public 公共目录(上传图片、缓存、配置信息、日志文件、数据备份)需要777(读写权限v;
+module Controller view;模型，控制器，视图；

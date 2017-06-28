@@ -1,4 +1,4 @@
-<?php exit;?>a:3:{s:8:"template";a:3:{i:0;s:40:"D:/data/WWW/app/Tpl/blue/page/index.html";i:1;s:40:"D:/data/WWW/app/Tpl/blue/inc/header.html";i:2;s:40:"D:/data/WWW/app/Tpl/blue/inc/footer.html";}s:7:"expires";i:1498543810;s:8:"maketime";i:1498543210;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php exit;?>a:3:{s:8:"template";a:3:{i:0;s:40:"D:/data/WWW/app/Tpl/blue/page/index.html";i:1;s:40:"D:/data/WWW/app/Tpl/blue/inc/header.html";i:2;s:40:"D:/data/WWW/app/Tpl/blue/inc/footer.html";}s:7:"expires";i:1498629381;s:8:"maketime";i:1498628781;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="Generator" />
@@ -182,6 +182,65 @@ $(function() {
 						<th style="width:10%">借款进度</th>
 						<th style="width:15%">借款状态</th>
 					</tr>
+										<tr class="item  clearfix" style="border-bottom:0">
+						<td  class="tl" style="text-align:left;">
+							&nbsp;&nbsp;<img src="http://127.0.0.1/public/images/dealcate/zhibt.png" width="24" height="24" class="ico" />
+							<a href="/index.php?ctl=deal&id=3"><span style='color:#2169c2'>asdads</span></a>
+				    	</td>
+						<td>
+							<span>￥1.00万</span>
+						</td>
+						<td>
+							<img src="http://127.0.0.1/app/Tpl/blue/images/AA.png" align="absmiddle" title="AA" alt="AA" height="40" />
+						</td>
+						<td>
+							<span>15.00 %</span>
+						</td>
+						<td>
+							<span>3</span>个月						</td>	
+						<td>					
+							<div class="graph-box">
+								<p>
+																		0%
+																	</p>
+		                    	<div id="graph-3"></div>
+							</div>
+							<script type="text/javascript">
+							  									<!--//筹款中-->
+								var colors = ['#00bef0', '#e7e5e5'];
+								var myData = new Array([' ', 0], [' ', 100]);
+																var myChart = new JSChart('graph-3', 'pie');
+								myChart.setDataArray(myData);
+								myChart.colorizePie(colors);
+								myChart.setTitleColor('#8E8E8E');
+								myChart.setTitleFontSize(0);
+								myChart.setTextPaddingTop(280);
+								myChart.setPieValuesDecimals(1);
+								myChart.setPieUnitsFontSize(0);
+								if($.browser.msie)
+									myChart.setPieValuesFontSize(0);
+								else
+									myChart.setPieValuesFontSize(100000000);
+								myChart.setPieValuesColor('#fff');
+								myChart.setPieUnitsColor('#969696');
+								myChart.setSize(46, 46);
+								myChart.setPiePosition(0, 0);
+								myChart.setPieRadius(23);
+								myChart.setFlagColor('#1BB8E3');
+								myChart.setFlagRadius(4);
+								myChart.setTooltipOpacity(1);
+								myChart.setTooltipBackground('#ddf');
+								myChart.setTooltipPosition('ne');
+								myChart.setTooltipOffset(2);
+								myChart.draw();
+							</script>
+						</td>
+						<td style="width:95px;">
+							<a href="/index.php?ctl=deal&id=3">
+																	<span class="f_white">筹款中</span>
+															</a>
+						</td>
+					</tr>
 									</tbody>
 			</table>
 			<a href="/index.php?ctl=deals" title="更多" class="more">查看更多借款列表</a>
@@ -335,6 +394,12 @@ $(function() {
         	        	<div class="wrap">
 	            <ul class="cf">
 	            											<li class="col hp1">
+	                    <h3>联系我们</h3>
+	                    <ul class="sub-list">
+							             
+						</ul>
+	                </li> 
+																				<li class="col hp2">
 	                    <h3>使用帮助</h3>
 	                    <ul class="sub-list">
 																					<li><a href="/index.php?ctl=help&id=8" >常见问题</a></li>
@@ -344,7 +409,7 @@ $(function() {
 														             
 						</ul>
 	                </li> 
-																				<li class="col hp2">
+																				<li class="col hp3">
 	                    <h3>关于我们</h3>
 	                    <ul class="sub-list">
 																					<li><a href="/index.php?ctl=help&id=1" >公司简介</a></li>
@@ -353,7 +418,7 @@ $(function() {
 														             
 						</ul>
 	                </li> 
-																				<li class="col hp3">
+																				<li class="col hp4">
 	                    <h3>安全保护</h3>
 	                    <ul class="sub-list">
 																					<li><a href="/index.php?ctl=aboutlaws" target="_blank">政策法规</a></li>
@@ -361,14 +426,7 @@ $(function() {
 														             
 						</ul>
 	                </li> 
-																				<li class="col hp4 end">
-	                    <h3>了解更多</h3>
-	                    <ul class="sub-list">
-																					<li><a href="/index.php?ctl=help&id=4" >咨询热点</a></li>
-														             
-						</ul>
-	                </li> 
-											            </ul>
+																					            </ul>
 				<div class="blank"></div>
 			</div>
 			<div class="footer_line"></div>
@@ -390,8 +448,12 @@ $(function() {
 									
 					&nbsp;&nbsp;
 										<div class="blank1"></div>	
-					<div style="text-align:center;">联系我们：info@fanwe.com &nbsp; 福州方维信息科技有限公司</div>
-<div style="text-align:center;">© 2013 p2p信贷 All rights reserved</div> 
+					<div style="text-align:center;">
+	联系我们：info@fanwe.com &nbsp; 福州方维信息科技有限公司
+</div>
+<div style="text-align:center;">
+	&copy; 2013 p2p信贷 All rights reserved
+</div> 
 					<div class="blank"></div>				
 										
 	            </div>

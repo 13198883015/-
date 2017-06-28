@@ -18,7 +18,7 @@ define('THINK_PATH', './admin/ThinkPHP');
 //定义项目名称和路径
 define('APP_NAME', 'admin');
 define('APP_PATH', './admin');
-
+define('DEBUG',TRUE);
 // 加载框架入口文件 
 require(THINK_PATH."/ThinkPHP.php");
 

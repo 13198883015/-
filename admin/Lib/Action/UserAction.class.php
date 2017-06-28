@@ -245,7 +245,8 @@ class UserAction extends CommonAction{
 		$this->success(L("INSERT_SUCCESS"));
 		
 	}
-	public function edit() {		
+	public function edit() {
+
 		$id = intval($_REQUEST ['id']);
 		$condition['is_delete'] = 0;
 		$condition['id'] = $id;		
